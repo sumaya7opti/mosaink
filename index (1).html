@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MOSaiNK · a youth-led initiative built piece by piece: education, community, creativity and growth.">
+<title>MOSaiNK | Youth Initiative</title>
+<style>
+:root{--ink:#263247;--muted:#687184;--cream:#fbf8f3;--rose:#c68a9a;--line:#ded9d3;--night:#343344}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:var(--cream);line-height:1.65}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:500;line-height:1.15}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid #8f7bb3;outline-offset:2px}
+.nav{position:sticky;top:0;z-index:20;background:rgba(251,248,243,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1180px;margin:auto;padding:10px 24px;display:flex;align-items:center;gap:28px}
+.brand{display:flex;align-items:center;gap:10px;margin-right:auto}
+.brand svg{width:56px;height:auto}
+.brand strong{font-family:Georgia,serif;font-size:24px;letter-spacing:3px}
+.brand small{display:block;font-size:8px;letter-spacing:3px;color:var(--muted)}
+.links{display:flex;gap:22px;font-size:13px}.links a:hover{color:var(--rose)}
+.btn{display:inline-block;padding:10px 20px;border-radius:24px;border:1px solid var(--rose);background:var(--rose);color:#fff;font-size:13px;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.hero{background:radial-gradient(circle at 78% 30%,rgba(255,255,255,.5),transparent 20%),linear-gradient(120deg,#77768a,#b69aa7 52%,#efc7b0);color:#fff;overflow:hidden}
+.hero-inner{max-width:1180px;margin:auto;padding:60px 24px;display:grid;grid-template-columns:1.05fr 1fr;gap:20px;align-items:center}
+.eyebrow{letter-spacing:4px;text-transform:uppercase;font-size:11px}
+.hero h1{font-size:70px;letter-spacing:6px;margin:12px 0 0}
+.hero h2{font-size:24px;margin:5px 0 15px;font-style:italic}
+.hero p{max-width:500px;opacity:.95}
+.hero .btn{margin:12px 10px 0 0;background:#fff;color:#465066;border-color:#fff}.hero .btn.ghost{background:transparent;color:#fff;border-color:#fff}
+.hero svg{width:100%;height:auto;filter:drop-shadow(0 12px 24px rgba(52,51,68,.25))}
+section{max-width:1180px;margin:auto;padding:64px 24px}
+.section-title{display:flex;align-items:center;gap:18px;margin-bottom:30px}
+.section-title h2{font-size:33px;margin:0;letter-spacing:2px}.rule{height:1px;background:var(--line);flex:1}
+.pillars{display:grid;grid-template-columns:repeat(5,1fr)}
+.pillar{text-align:center;padding:18px 12px;border-right:1px solid var(--line)}.pillar:last-child{border:0}
+.icon{width:58px;height:58px;border-radius:14px;display:grid;place-items:center;margin:0 auto 15px;font-size:25px}
+.pillar h3{font-size:18px;margin:0 0 8px}.pillar p{font-size:12px;color:var(--muted);margin:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{padding:36px;border:1px solid var(--line)}.card h2,.card h3{margin:0 0 14px;font-size:28px}.card p{color:#596273}
+.rose{background:#f7e9ed}.sage{background:#edf2eb}
+.quote{margin-top:18px;font-family:Georgia,serif;font-style:italic}
+.event{background:#fff;border:1px solid var(--line);padding:30px;display:flex;flex-direction:column;gap:10px;border-top:5px solid var(--c)}
+.event h3{font-size:25px;margin:0}.event p{margin:0;font-size:14px;color:#596273}
+.tag{font-size:11px;color:#9b6172}.meta{font-size:13px;color:var(--muted)}
+.event .btn{align-self:flex-start;margin-top:8px}
+.roles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.role{background:#fff;border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:8px}
+.role h3{margin:0;font-size:20px}.role p{margin:0;font-size:13px;color:var(--muted);flex:1}.role .btn{align-self:flex-start;font-size:12px;padding:8px 16px}
+.note{font-size:13px;color:var(--muted);margin-top:16px}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.project{background:#fff;border:1px solid var(--line);padding:28px}.project h3{font-size:21px;margin:0 0 9px}.project p{font-size:13px;color:var(--muted);margin:0}
+.team{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.member{padding:24px 18px;border-right:1px solid var(--line)}.member:last-child{border:0}
+.dot{width:13px;height:13px;border-radius:3px;margin-bottom:16px}.member h3{font-size:17px;margin:0 0 5px}.role-t{font-size:11px;color:#747a87}.member p{font-size:12px;color:var(--muted);margin:6px 0 0}
+.cta{background:var(--night);color:#fff;text-align:center;max-width:none}
+.cta div{max-width:820px;margin:auto}.cta h2{font-size:38px;margin:0 0 12px}.cta p{color:#ddd;margin:0 0 24px}
+footer{background:#292936;color:#ddd;padding:24px}.fi{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:20px;align-items:center;font-size:12px}
+.fi a{margin-left:15px}
+dialog{border:0;border-radius:14px;padding:0;width:min(640px,94vw);max-height:92vh;background:var(--cream);color:var(--ink)}
+dialog::backdrop{background:rgba(38,50,71,.6)}
+.dh{display:flex;justify-content:space-between;align-items:flex-start;padding:24px 28px 8px;gap:12px}
+.dh h2{margin:0;font-size:27px}.dh p{margin:4px 0 0;font-size:13px;color:var(--muted)}
+.x{border:0;background:none;font-size:28px;line-height:1;cursor:pointer;color:var(--muted)}
+form{padding:8px 28px 26px;display:grid;gap:14px}
+label{display:grid;gap:5px;font-size:13px;font-weight:600}
+label span.h{font-weight:400;color:var(--muted);font-size:12px}
+input,select,textarea{border:1px solid #cfc8c0;border-radius:8px;padding:10px 12px;background:#fff;font-weight:400;width:100%}
+textarea{min-height:110px;resize:vertical}
+.chk{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:13px}.chk input{width:auto;margin-top:4px}
+.wc{font-size:12px;color:var(--muted);text-align:right;font-weight:400}.wc.bad{color:#b3403f;font-weight:700}
+.sec{font-family:Georgia,serif;font-size:17px;margin:6px 0 -4px;padding-top:10px;border-top:1px solid var(--line)}
+.err{color:#b3403f;font-size:13px;min-height:1em}
+.done{padding:30px 28px 34px;text-align:center}.done h2{font-size:28px}
+.pill{display:inline-block;background:#f3e3d5;color:#8a5a2b;border-radius:20px;padding:4px 14px;font-size:12px;font-weight:700}
+@media(max-width:900px){.links{display:none}.hero-inner{grid-template-columns:1fr}.hero h1{font-size:50px}.pillars,.team{grid-template-columns:1fr 1fr}.pillar,.member{border-right:0;border-bottom:1px solid var(--line)}.two,.projects{grid-template-columns:1fr}.roles{grid-template-columns:1fr 1fr}.fi{flex-direction:column}}
+@media(max-width:520px){.pillars,.team,.roles{grid-template-columns:1fr}.hero h1{font-size:40px}.card{padding:26px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner">
+  <a class="brand" href="#home" aria-label="MOSaiNK home"><span class="logo-sm"></span><span><strong>MOSaiNK</strong><small>YOUTH INITIATIVE</small></span></a>
+  <div class="links"><a href="#about">About</a><a href="#events">Events</a><a href="#join">Join Us</a><a href="#projects">Projects</a><a href="#team">Our Team</a></div>
+  <button class="btn" data-open="join">Become a Member</button>
+</div></nav>
+
+<header class="hero" id="home"><div class="hero-inner">
+  <div>
+    <div class="eyebrow">Youth • Community • Opportunity</div>
+    <h1>MOSaiNK</h1>
+    <h2>Many small pieces. One bright future.</h2>
+    <p>A youth-led initiative supporting young people, women, students and underserved communities through education, creativity, friendship and service. Every member is a tile in the picture.</p>
+    <button class="btn" data-open="join">Join MOSaiNK</button><a class="btn ghost" href="#events">Upcoming events</a>
+  </div>
+  <div class="logo-big" role="img" aria-label="MOSaiNK logo: a shooting star made of small mosaic tiles showing books, plants, hands, friends and growth"></div>
+</div></header>
+
+<section id="pillars">
+  <div class="section-title"><h2>Our Five Pillars</h2><span class="rule"></span></div>
+  <div class="pillars">
+    <article class="pillar"><div class="icon" style="background:#f4dce2">📖</div><h3>Education & Opportunity</h3><p>Learning, mentorship and access to opportunities for students.</p></article>
+    <article class="pillar"><div class="icon" style="background:#e8e0f0">🎨</div><h3>Youth Talent</h3><p>Debates, art, sports and skill-building that help young people grow.</p></article>
+    <article class="pillar"><div class="icon" style="background:#f3e3d5">🌟</div><h3>Women & Girls Empowerment</h3><p>Confidence, safety, leadership and opportunity.</p></article>
+    <article class="pillar"><div class="icon" style="background:#e0eadf">🤝</div><h3>Community Service</h3><p>Charity, humanitarian support and help in times of need.</p></article>
+    <article class="pillar"><div class="icon" style="background:#e1e9ef">🌱</div><h3>Youth & Sustainability</h3><p>Environmental awareness and action for healthier communities.</p></article>
+  </div>
+</section>
+
+<section id="about"><div class="two">
+  <article class="card rose"><h2>Our Mission</h2><p>To support youth, women, students and underserved communities through education, empowerment and social service, creating equal opportunities and a brighter future for all.</p></article>
+  <article class="card sage"><h2>Our Vision</h2><p>Communities where young people can access education and opportunity, women and girls can pursue their ambitions safely, and people come together to support one another.</p><div class="quote">Big dreams. Real change.</div></article>
+</div></section>
+
+<section id="events">
+  <div class="section-title"><h2>Upcoming Events</h2><span class="rule"></span></div>
+  <div class="two">
+    <article class="event" style="--c:#8f7bb3"><span class="tag">Students · Registration open</span><h3>Inter-School Debating Competition</h3><p>Sharpen your voice. Students argue real-world motions in front of a panel of judges, solo or in teams.</p><div class="meta">Date & venue: to be announced</div><button class="btn" data-open="debate">Register to debate</button></article>
+    <article class="event" style="--c:#d99a63"><span class="tag">Kids · Registration open</span><h3>Drawing & Art Competition</h3><p>A colourful day for young artists. Every child gets a place on the wall, and every piece is part of the mosaic.</p><div class="meta">Date & venue: to be announced</div><button class="btn" data-open="art">Register an artist</button></article>
+  </div>
+</section>
+
+<section id="join">
+  <div class="section-title"><h2>Join the Mosaic</h2><span class="rule"></span></div>
+  <div class="roles">
+    <article class="role"><h3>General Member</h3><p>Be part of the community, get updates and take part in our activities.</p><button class="btn" data-open="join" data-role="General Member">Apply</button></article>
+    <article class="role"><h3>Campus Ambassador</h3><p>Represent MOSaiNK at your school, college or university and bring your campus in.</p><button class="btn" data-open="join" data-role="Campus Ambassador">Apply</button></article>
+    <article class="role"><h3>Volunteer</h3><p>Give your time to events, drives and community service work.</p><button class="btn" data-open="join" data-role="Volunteer">Apply</button></article>
+    <article class="role"><h3>Partner / Other</h3><p>Mentor, sponsor, collaborate, or something we haven't thought of yet.</p><button class="btn" data-open="join" data-role="Partner / Other">Apply</button></article>
+  </div>
+  <p class="note">Every application is reviewed by our team. You'll be marked <b>Pending</b> until we approve it, and we'll contact you by email or WhatsApp.</p>
+</section>
+
+<section id="projects">
+  <div class="section-title"><h2>Projects & Impact</h2><span class="rule"></span></div>
+  <div class="projects">
+    <article class="project"><div class="tag">Coming soon</div><h3>Community Service</h3><p>Documenting our charitable work with transparent records and activity reports.</p></article>
+    <article class="project"><div class="tag">Registration open</div><h3>Youth Activities</h3><p>Debates, creative competitions, sports tournaments and workshops.</p></article>
+    <article class="project"><div class="tag">Future vision</div><h3>Opportunity & Support</h3><p>Scholarship support, women's mobility initiatives and disaster-response programs.</p></article>
+  </div>
+</section>
+
+<section id="team">
+  <div class="section-title"><h2>Founding Team</h2><span class="rule"></span></div>
+  <div class="team">
+    <article class="member"><div class="dot" style="background:#d99aaa"></div><h3>Sumaya</h3><div class="role-t">Co-Founder & Executive Director</div><p>Vision · Strategy · Partnerships</p></article>
+    <article class="member"><div class="dot" style="background:#cfc1df"></div><h3>Kamrunnahar Sweety</h3><div class="role-t">Co-Founder & Operations Director</div><p>Planning · Coordination · Events</p></article>
+    <article class="member"><div class="dot" style="background:#bfd2bd"></div><h3>Nisa Moni</h3><div class="role-t">Co-Founder & Programs & Research Director</div><p>Research · Programs · Impact</p></article>
+    <article class="member"><div class="dot" style="background:#e3c5a9"></div><h3>Marium Akter</h3><div class="role-t">Co-Founder & Creative & Communications Director</div><p>Design · Media · Storytelling</p></article>
+    <article class="member"><div class="dot" style="background:#bfd0dc"></div><h3>Opy</h3><div class="role-t">Co-Founder & Community & Volunteer Coordinator</div><p>Volunteers · Outreach · Support</p></article>
+  </div>
+</section>
+
+<section class="cta"><div>
+  <h2>Ready to be a piece of the picture?</h2>
+  <p>MOSaiNK grows from small, consistent actions by young people who believe meaningful change starts with us.</p>
+  <button class="btn" data-open="join">Become a Member</button>
+</div></section>
+
+<footer><div class="fi">
+  <div>MOSaiNK Youth Initiative · Bangladesh · © 2026</div>
+  <div><a href="#">Instagram</a><a href="#">Facebook</a><a id="mail" href="#">Email</a></div>
+</div></footer>
+
+<dialog id="dlg" aria-labelledby="dt"></dialog>
+
+<script>
+/* ====== SETTINGS: edit these two lines ====== */
+const FORM_ENDPOINT = "https://formspree.io/f/myezlnzv";
+const EMAIL = "mosaink.youth@gmail.com";
+/* ============================================ */
+document.getElementById('mail').href='mailto:'+EMAIL;
+
+/* ---- Logo: a shooting star made of tiles, each holding a tiny symbol ---- */
+const G={
+ book:'M4 6q4-2 8 0q4-2 8 0v12q-4-2-8 0q-4-2-8 0zM12 6v12',
+ heart:'M12 19l-6-6a3.5 3.5 0 015-5l1 1 1-1a3.5 3.5 0 015 5z',
+ plant:'M12 20v-8M12 13c0-4-3-6-7-6 0 4 3 6 7 6zM12 15c0-3 2-5 6-5 0 3-2 5-6 5z',
+ people:'M8 8.5a2 2 0 104 0 2 2 0 10-4 0M14 9.5a1.8 1.8 0 103.6 0 1.8 1.8 0 10-3.6 0M4 19c0-3 2-5 5-5s5 2 5 5M14 15c3 0 6 1 6 4',
+ grow:'M4 18l5-5 3 3 7-8M14 8h5v5',
+ cap:'M2 9l10-4 10 4-10 4zM6 11v4c3 2 9 2 12 0v-4',
+ pencil:'M5 19l1-4 9-9 3 3-9 9zM14 7l3 3',
+ help:'M12 4a8 8 0 100 16 8 8 0 000-16zM12 9a3 3 0 100 6 3 3 0 000-6zM6.500 6.500l3 3M17.500 6.500l-3 3M6.500 17.500l3-3M17.500 17.500l-3-3'
+};
+const K=Object.keys(G),C=['#c9758b','#8f7bb3','#6fa07c','#d99a63','#6b93b0','#b5657a','#7d6aa5','#5f9a8c'];
+function logo(icons){
+  const cx=125,cy=215,pts=[];
+  for(let k=0;k<10;k++){const r=k%2?52:112,a=(-90+k*36)*Math.PI/180;pts.push([cx+r*Math.cos(a),cy+r*Math.sin(a)])}
+  const inside=(x,y)=>{let o=false;for(let i=0,j=9;i<10;j=i++){const[a,b]=pts[i],[c,d]=pts[j];if((b>y)!=(d>y)&&x<(c-a)*(y-b)/(d-b)+a)o=!o}return o};
+  let s='',n=0;
+  for(let y=20;y<330;y+=15)for(let x=2;x<260;x+=15){
+    if(!inside(x+6.5,y+6.5))continue;
+    const col=C[(Math.floor((Math.atan2(y-cy,x-cx)+Math.PI)/6.283*8)+(n%4==0?1:0))%8],g=G[K[n%K.length]];n++;
+    s+=`<rect x="${x}" y="${y}" width="13.500" height="13.500" rx="2.500" fill="${col}"/>`;
+    if(icons)s+=`<path d="${g}" transform="translate(${x+2.200} ${y+2.200}) scale(.38)" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>`;
+  }
+  for(let s2=-1;s2<=1;s2+=2)for(let i=0;i<13;i++){
+    const d=112+i*11,sz=Math.max(3.5,15-i*1),px=cx+d*.59+s2*(4+i*.9)*.81,py=cy-d*.81-s2*(4+i*.9)*.59;
+    s+=`<rect x="${px.toFixed(1)}" y="${py.toFixed(1)}" width="${sz.toFixed(1)}" height="${sz.toFixed(1)}" rx="2" fill="${C[(i*2+(s2>0?1:0))%C.length]}" opacity="${(1-i/17).toFixed(2)}"/>`;
+  }
+  return `<svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">${s}</svg>`;
+}
+document.querySelector('.logo-big').innerHTML=logo(true);
+document.querySelector('.logo-sm').innerHTML=logo(false);
+
+/* ---- Forms ---- */
+const Q={
+ join:{t:'Join MOSaiNK',d:'Tell us about yourself. Your application will be reviewed and marked Pending until approved.',f:[
+  ['name','Full name','t'],['email','Email address','e'],['whatsapp','WhatsApp / contact number','tel'],
+  ['role','I want to join as','s',['General Member','Campus Ambassador','Volunteer','Partner / Other']],
+  ['campus','School / college / university','t','Required for Campus Ambassadors'],
+  ['theme','Which part of our work excites you most?','s',['Education','Debate & art','Women & girls empowerment','Community service','Sustainability','Not sure yet']],
+  ['motivation','Why do you want to join MOSaiNK?','w','Maximum 200 words'],
+  ['achievements','Your achievements so far','w','Maximum 200 words'],
+  ['hours','Time you can give to volunteer work','s',['1–2 hours a week','3–5 hours a week','Weekends / events only','More than 5 hours a week']],
+  ['commit','I am willing to volunteer my time for community work.','c']]},
+ debate:{t:'Debating Competition',d:'Register to take part. Date and venue will be shared by email/WhatsApp.',f:[
+  ['name','Participant name','t'],['email','Email address','e'],['whatsapp','WhatsApp / contact number','tel'],
+  ['school','School / college','t'],['grade','Class / year','t'],
+  ['format','Participation','s',['Solo','Team of 2','Team of 3']],
+  ['team','Teammate names','t','If you chose a team'],
+  ['exp','Debating experience','s',['First time','Some experience','Experienced']],
+  ['q1','If you could change one rule at your school, what would it be and why?','a'],
+  ['q2','What is one motion you would love to debate?','t'],
+  ['commit','I will attend on the event date and follow the competition rules.','c']]},
+ art:{t:'Drawing & Art Competition',d:'For kid students. A parent or guardian must complete this form.',f:[
+  ['name','Young artist’s name','t'],['age','Age','n'],['grade','Class','t'],['school','School','t'],
+  ['guardian','Parent / guardian name','t'],['whatsapp','Guardian WhatsApp / contact number','tel'],['email','Guardian email','e'],
+  ['medium','Preferred medium','s',['Pencil / charcoal','Crayons / colour pencils','Watercolour','Poster colour','Not sure yet']],
+  ['q1','What makes you happiest?','t'],
+  ['q2','If you could paint one superpower, what would it be?','t'],
+  ['commit','I am the parent/guardian and I give permission for my child to take part.','c']]}
+};
+const dlg=document.getElementById('dlg'),wc=s=>(s.trim().match(/\S+/g)||[]).length;
+let cur;
+function open(k,role){
+  cur=k;const q=Q[k];
+  const h=q.f.map(([n,l,t,x])=>{
+    const hint=(typeof x==='string')?`<span class="h">${x}</span>`:'';
+    if(t==='c')return `<label class="chk"><input type="checkbox" name="${n}" required><span>${l}</span></label>`;
+    if(t==='s')return `<label>${l}<select name="${n}" required>${x.map(o=>`<option>${o}</option>`).join('')}</select></label>`;
+    if(t==='w')return `<label>${l} ${hint}<textarea name="${n}" data-w="200" required></textarea><span class="wc">0 / 200 words</span></label>`;
+    if(t==='a')return `<label>${l}<textarea name="${n}" required></textarea></label>`;
+    const ty={e:'email',tel:'tel',n:'number'}[t]||'text',req=(n==='team'||n==='campus')?'':'required';
+    return `<label>${l} ${hint}<input type="${ty}" name="${n}" ${req} ${t==='n'?'min=3 max=18':''}></label>`;
+  }).join('');
+  dlg.innerHTML=`<div class="dh"><div><h2 id="dt">${q.t}</h2><p>${q.d}</p></div><button class="x" type="button" aria-label="Close" onclick="dlg.close()">×</button></div><form novalidate>${h}<div class="err" role="alert"></div><button class="btn" type="submit">Submit application</button></form>`;
+  const f=dlg.querySelector('form');
+  if(role)f.role.value=role;
+  f.querySelectorAll('[data-w]').forEach(t=>t.addEventListener('input',()=>{const n=wc(t.value),o=t.nextElementSibling;o.textContent=n+' / 200 words';o.classList.toggle('bad',n>200)}));
+  f.addEventListener('submit',e=>{e.preventDefault();send(f)});
+  dlg.showModal();
+}
+async function send(f){
+  const err=f.querySelector('.err');err.textContent='';
+  if(!f.checkValidity()){f.reportValidity();return}
+  if(cur==='join'&&f.role.value==='Campus Ambassador'&&!f.campus.value.trim()){err.textContent='Please add your school / college / university.';f.campus.focus();return}
+  for(const t of f.querySelectorAll('[data-w]'))if(wc(t.value)>200){err.textContent='Please keep each long answer to 200 words or fewer.';t.focus();return}
+  const d=Object.fromEntries(new FormData(f));d.form=Q[cur].t;d.status='Pending';d.submitted=new Date().toISOString();
+  const btn=f.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Sending…';
+  try{
+    if(FORM_ENDPOINT){
+      const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(d)});
+      if(!r.ok)throw 0;
+    }else{
+      const body=Object.entries(d).map(([k,v])=>k+': '+v).join('\n');
+      location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('MOSaiNK – '+d.form+' – '+d.name)+'&body='+encodeURIComponent(body);
+    }
+    dlg.innerHTML=`<div class="dh"><div></div><button class="x" type="button" aria-label="Close" onclick="dlg.close()">×</button></div><div class="done"><span class="pill">Status: Pending review</span><h2>Thank you, ${d.name.replace(/</g,'&lt;')}!</h2><p>We've received your ${d.form.toLowerCase()} form. Our team will review it and get back to you by email or WhatsApp once it's approved.</p><button class="btn" onclick="dlg.close()">Close</button></div>`;
+  }catch(x){btn.disabled=false;btn.textContent='Submit application';err.textContent='Something went wrong. Please try again, or email us at '+EMAIL+'.'}
+}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-open]');if(b)open(b.dataset.open,b.dataset.role)});
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+</script>
+</body>
+</html>
